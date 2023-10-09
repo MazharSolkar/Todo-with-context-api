@@ -16,33 +16,24 @@ function App() {
   }, [todos]);
 
   const addTodo = (todo) => {
-    setTodos((prevTodos) => {
-      const updatedTodos = [...prevTodos, { ...todo }];
-      return updatedTodos;
-    });
+    setTodos((Todos) => [...Todos, { ...todo }]);
   };
 
   const updateTodo = (id, updatedTodo) => {
-    setTodos((prevTodos) => {
-      const updatedTodos = prevTodos.map((prevtodo) =>
-        prevtodo.id === id ? { ...prevtodo, ...updatedTodo } : prevtodo
-      );
-      return updatedTodos;
-    });
+    setTodos((Todos) =>
+      Todos.map((todo) => (todo.id === id ? { ...todo, ...updatedTodo } : todo))
+    );
   };
 
   const deleteTodo = (id) => {
-    setTodos((prevTodos) => prevTodos.filter((prevtodo) => prevtodo.id !== id));
+    setTodos((Todos) => Todos.filter((todo) => todo.id !== id));
   };
 
   const toggleComplete = (id) => {
-    setTodos((prevTodos) => {
-      const updatedTodos = prevTodos.map((prevtodo) =>
-        prevtodo.id === id
-          ? { ...prevtodo, completed: !prevtodo.completed }
-          : prevtodo
+    setTodos((Todos) => {
+      Todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
       );
-      return updatedTodos;
     });
   };
 
