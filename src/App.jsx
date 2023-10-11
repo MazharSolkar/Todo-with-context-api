@@ -30,11 +30,11 @@ function App() {
 	};
 
 	const toggleComplete = (id) => {
-		setTodos((Todos) => {
+		setTodos((Todos) =>
 			Todos.map((todo) =>
 				todo.id === id ? { ...todo, completed: !todo.completed } : todo
-			);
-		});
+			)
+		);
 	};
 
 	return (
